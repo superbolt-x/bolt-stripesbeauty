@@ -9,11 +9,11 @@ WITH vibe_data AS (
         {% for granularity in date_granularity_list %}
         SELECT 
             '{{granularity}}' as date_granularity,
-            date_trunc('{{granularity}}',impression_date) end as date,
-			      campaign_id,	
-            creative_id,	
-            campaign_name,	
-            creative_name,
+            date_trunc('{{granularity}}',impression_date) as date,
+			campaign_id,
+			campaign_name,
+            creative_id as ad_id,		
+            creative_name as ad_name,
             sum(spend) as spend,
             sum(impressions) as impressions,
             sum(completed_views) as completed_views,
