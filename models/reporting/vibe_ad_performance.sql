@@ -23,7 +23,7 @@ WITH vibe_data AS (
             sum(number_of_leads) as leads,
             sum(number_of_signups) as signups,
             sum(installs) as installs,
-            sum(number_of_purchases) as purchases
+            sum(number_of_purchases) as purchases,
             sum(amount_of_purchases) as revenue
         FROM {{ source('gsheet_raw','vibe_ads_insights') }}
         GROUP BY 1,2,3,4,5,6
